@@ -3,4 +3,6 @@
 @import "modules/_global.scss";
 @import "modules/_header.scss";
 @import "modules/_main.scss";
+@import "modules/_wrapper.scss";
 @import "modules/_sidebar.scss";
+@import "modules/_message.scss";
