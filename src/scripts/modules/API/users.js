@@ -15,14 +15,16 @@ module.exports = {
           console.log(user);
         }
         else {
-          postNewUserToDatabase(user);
-          module.exports.authAndLoginUser();
+          postNewUserToDatabase(user)
+            .then(
+              module.exports.authAndLoginUser
+            );
         }
       });
   },
-  authAndLoginUser: function () {
+  authAndLoginUser: function (user) {
 
-  let user = getInputData();
+  if (user === undefined) user = getInputData();
 
   authenticate(user)
     .then(signIn);
@@ -53,7 +55,9 @@ function getInputData() {
   let inputData = {
     userName: "Carly",
     password: "carly",
-    email: "carly@carly.com"
+    email: "carly@carly.com",
+    isOnline: false,
+    userPhoto: ""
   };
   return inputData;
 }
