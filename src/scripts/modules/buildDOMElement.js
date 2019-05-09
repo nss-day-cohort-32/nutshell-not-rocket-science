@@ -3,7 +3,7 @@ module.exports.buildDOMElement = function (tagName, parentElement, id, classArra
   if (id) element.id = id;
   if (classArray.length > 0) {
     classArray.forEach(cls => {
-      element.classList.add(cls)
+      element.classList.add(cls);
     });
   }
   if (attributesObject) {
@@ -12,4 +12,4 @@ module.exports.buildDOMElement = function (tagName, parentElement, id, classArra
     }
   }
   return parentElement.appendChild(element);
-}
+};
