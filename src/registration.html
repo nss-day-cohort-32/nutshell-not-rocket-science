@@ -6,31 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
 </head>
 
 <body>
+    <h1>Sign Up</h1>
 
+    <div class="flex-container">
+        <form action="">
+            <fieldset>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+            </fieldset>
+
+            <fieldset>
+                <label for="email">Email</label>
+                <input type="email" id="email">
+            </fieldset>
+
+            <fieldset>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </fieldset>
+            <button id="submitBtn">Submit</button>
+            <div>
+                <a href="#" class="active-link" id="register-link">Register</a>
+                <a href="#" id="sign-in-link">Sign In</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="src/scripts/modules/users/registration.js"></script>
 </body>
 
 </html>
-
-<form action="action_page.php" style="border:1px solid #ccc">
-    <div class="container">
-        <h1>Sign Up</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr>
-
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Username" name="username" required>
-
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
-
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-
-        <div class="submitRegistration">
-            <button type="submit" class="signupbtn">Sign Up</button>
-        </div>
-    </div>
-</form>
