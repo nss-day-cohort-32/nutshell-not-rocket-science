@@ -1,62 +1,41 @@
-import { Endpoint } from "./API";
-
-/*
-Usage of users function...
-
-Call with:
-users.register(user)
-user.doLogin(user)
 
 
+const users = "http://localhost:8088/users";
 
 
-*/
+module.exports = {
+  registerNewUser: function () {
+    let user = getInputData();
 
+    checkUnique(user)
+      .then(user => {
+        if (typeof(user) === "string") {
+          // User already exists!
+          //  TODO: Display message on DOM.
+          console.log(user);
+        }
+        else {
+          postNewUserToDatabase(user);
+          module.exports.authAndLoginUser();
+        }
+      });
+  },
+  authAndLoginUser: function () {
 
+  let user = getInputData();
 
-
-const users = new Endpoint("http://localhost:8088/users");
-
-module.exports.users = {
-  register: register,
-  doLogin: doLogin
-};
-
-
-function register(user) {
-  //  Make dummy user to test function
-  user = makeUserObject("Carly", "BobMarley@carly.com", "carly");
-
-  checkUnique(user)
-    .then(user => {
-      if (typeof(user) === "string") {
-        console.log(user);
-      }
-      else {
-        return users.create(user);
-      }
-    });
-
-
-}
-
-
-
-function doLogin() {
-
-  let user = makeUserObject("Carly", "BobMarley@carly.com", "carly");
   authenticate(user)
     .then(signIn);
 
+  }
+};
 
-}
 
 function checkUnique(user) {
-  let promises = [
-    users.read(`?userName=${user.userName}`),
-    users.read(`?email=${user.email}`)
-    ];
-    return Promise.all(promises)
+  return Promise.all(
+      getUser(`?userName=${user.userName}`),
+      getUser(`?email=${user.email}`)
+    )
       .then(matchingUsers => {
         if (matchingUsers[0].length > 0) {
           return "Username already exists!";
@@ -68,16 +47,44 @@ function checkUnique(user) {
       });
 }
 
-function authenticate(input) {
-  let userName = users.read(`?userName=${input.userName}`),
-  email = users.read(`?email=${input.email}`);
+function getInputData() {
 
-  return Promise.all([userName, email])
+  //  TODO: get data from login/register fields
+  let inputData = {
+    userName: "Carly",
+    password: "carly",
+    email: "carly@carly.com"
+  };
+  return inputData;
+}
+
+
+function getUser(params) {
+  return fetch(`${users}${params}`)
+    .then(response => response.json());
+}
+
+function postNewUserToDatabase(newUserObject) {
+  return fetch(`${users}`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify(newUserObject)
+  })
+  .then(response => response.json());
+}
+
+
+function authenticate(input) {
+
+  return Promise.all([
+    getUser(`?userName=${input.userName}`),
+    getUser(`?email=${input.email}`)
+  ])
     .then(
       authMethods => {
-        let output = authMethods
-          .find(method => {
-            console.log(method);
+        let output = authMethods.find(method => {
             if (method.length === 0) return false;
             return method[0].password === input.password;
           });
@@ -85,16 +92,13 @@ function authenticate(input) {
           return "Invalid username/password";
         } else return output[0];
         });
-
-
-
 }
 
 
 function signIn(user) {
   if (typeof(user) === "string") console.log(user);
   else {
-    // Complete login tasks
+    // Complete login tasks, switch view to main app
   }
 }
 
@@ -102,7 +106,7 @@ function signIn(user) {
 
 
 
-function makeUserObject(userName, email, password, userPhoto) {
+function createNewUserObject(userName, email, password, userPhoto) {
   return {
     userName: userName,
     email: email,
