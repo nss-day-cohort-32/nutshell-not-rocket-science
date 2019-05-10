@@ -9,7 +9,8 @@
 .message-container--inner {
   display: flex;
   overflow-y: scroll;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: flex-end;
   flex-grow: 2;
 }
 

@@ -16,22 +16,32 @@ export function showMessages() {
 
   //  Not the most efficient way to do this,
   //  but it will work for now...
-  addMessagesToDOM();
-  setInterval(addMessagesToDOM, 10000);
+  showInitialMessages();
+  setInterval(showNewMessages, 10000);
 }
 
 
 
 
-export function addMessagesToDOM() {
+export function showInitialMessages() {
+  let div = document.getElementById("msg-div");
+  div.innerHTML = "";
   fetchMessages().then(handleMessages);
+}
+
+export function showNewMessages() {
+  let div = document.getElementById("msg-div"),
+    lastChild = div.lastChild,
+    lastMessageTime = lastChild.getAttribute("data-timeStamp");
+  console.log(lastMessageTime);
+  fetchMessages(lastMessageTime).then(handleMessages);
+
 }
 
 
 function handleMessages(messages) {
   let div = document.getElementById("msg-div"),
     fragment = document.createDocumentFragment();
-  div.innerHTML = "";
   messages.forEach(message => {
     let card = buildMessageCard(message);
     fragment.appendChild(card);
@@ -45,14 +55,14 @@ function handleMessages(messages) {
 function buildMessageCard(message) {
   let article = document.createElement("article"),
     authorTools = "";
-
+  article.setAttribute("data-timeStamp", message.postedTime);
   article.classList.add("message");
   article.id = `message--${message.id}`;
 
   // if message.userId = logged in user...
   authorTools = `
-    <ion-icon name="create"></ion-icon>
-    <ion-icon name="trash"></ion-icon>
+    <ion-icon name="create" id="message--edit--${message.id}"></ion-icon>
+    <ion-icon name="trash" id="message--delete--${message.id}"></ion-icon>
   `;
   let messageTime = new Date(message.postedTime).toLocaleString(
     "en-US", {
