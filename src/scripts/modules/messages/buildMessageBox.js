@@ -1,4 +1,6 @@
-
+import {
+  addClickHandlers
+} from "./clickHandlers";
 
 
 
@@ -18,7 +20,7 @@ export function buildMessageBox() {
   container.innerHTML = "";
   container.appendChild(msgContainer);
 
-
+  addClickHandlers();
 }
 
 
@@ -33,4 +35,3 @@ function addMessageInputBox() {
     <button id="button-message-add" class="button"><ion-icon name="add"></ion-icon></button>`;
   return messageInputDiv;
 }
-

@@ -6,6 +6,10 @@ import {
   addMessage,
   deleteMessage
 } from "../API/messages";
+import {
+  refreshMessages
+} from "./refreshMessages";
+
 const moment = require("moment");
 
 
@@ -41,9 +45,8 @@ function addMessageHandler(event) {
 
 
 function deleteButtonHandler(id) {
-  console.log("delete me!");
   deleteMessage(id)
-    .then(showInitialMessages);
+    .then(refreshMessages);
 }
 
 

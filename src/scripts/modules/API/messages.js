@@ -24,33 +24,31 @@ export function fetchMessages() {
 
 export function addMessage(newMessage) {
   return fetch(messages, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newMessage)
-  })
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newMessage)
+    })
     .then(response => response.json());
 }
 export function editMessage(messageID, newMessage) {
   return fetch(`${messages}/${messageID}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newMessage)
-  })
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newMessage)
+    })
     .then(response => response.json());
 }
 
 export function deleteMessage(messageID) {
   return fetch(`${messages}/${messageID}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json"
-    },
-  })
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
     .then(response => response.json());
 }
-
-
