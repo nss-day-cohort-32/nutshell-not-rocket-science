@@ -1,2 +1,4 @@
 import API from "./modules/API.js";
-import "./modules/users/registration";
+import "./modules/tasks/dbCalls";
+import "./modules/tasks/tasksMain";
+import "./modules/tasks/taskList";
