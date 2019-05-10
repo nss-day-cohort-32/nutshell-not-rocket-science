@@ -10,11 +10,16 @@ export function addClickHandlers() {
   let addBtn = document.getElementById("button-message-add");
   addBtn.addEventListener("click", addMessageHandler);
 
-
-
+  let innerContainer = document.getElementById("message-container--inner");
+  innerContainer.addEventListener("click", containerClickHandler);
 
 }
 
+
+
+function containerClickHandler(event) {
+  console.log(event);
+}
 
 
 
