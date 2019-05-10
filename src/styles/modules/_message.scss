@@ -8,6 +8,7 @@
 
 .message-container--inner {
   display: flex;
+  overflow-y: scroll;
   flex-direction: column-reverse;
   flex-grow: 2;
 }

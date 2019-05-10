@@ -1,29 +1,31 @@
 import {
-  addMessage
-} from "./addMessage";
-
-const messages = "http://localhost:8088/messages?_expand=user";
-
-
-
-module.exports = {
-  showMessages: showMessages,
-  handleMessages: handleMessages,
-  quitMessages: window.clearInterval
-};
+  addClickHandlers
+} from "./clickHandlers";
+import {
+  fetchMessages
+} from "../API/messages";
+import { buildMessageBox } from "./buildMessageBox";
 
 
 
-function showMessages() {
-  buildOuterMessageArea();
+
+export function showMessages() {
+  buildMessageBox();
+
+  addClickHandlers();
 
   //  Not the most efficient way to do this,
   //  but it will work for now...
-  handleMessages();
-  setInterval(handleMessages, 10000);
+  addMessagesToDOM();
+  setInterval(addMessagesToDOM, 10000);
 }
 
 
+
+
+export function addMessagesToDOM() {
+  fetchMessages().then(handleMessages);
+}
 
 
 function handleMessages(messages) {
@@ -32,7 +34,6 @@ function handleMessages(messages) {
   div.innerHTML = "";
   messages.forEach(message => {
     let card = buildMessageCard(message);
-    console.log(message);
     fragment.appendChild(card);
   });
   div.appendChild(fragment);
@@ -79,34 +80,3 @@ function buildMessageCard(message) {
 
 
 
-
-function addMessageInputBox() {
-  let messageInputDiv = document.createElement("div");
-  messageInputDiv.classList.add("message-input-box");
-  messageInputDiv.innerHTML = `
-    <input type="text" placeholder="Add a message" id="message-textbox"></input>
-    <button id="button-message-add" class="button"><ion-icon name="add"></ion-icon></button>`;
-  return messageInputDiv;
-}
-
-
-
-function buildOuterMessageArea() {
-  let container = document.getElementById("main-content-area"),
-   msgContainer = document.createElement("div"),
-   innerDiv = document.createElement("div");
-
-
-  msgContainer.classList.add("message-container");
-  innerDiv.classList.add("message-container--inner");
-  innerDiv.id = "msg-div";
-
-  msgContainer.appendChild(innerDiv);
-  msgContainer.appendChild(addMessageInputBox());
-
-  container.innerHTML = "";
-  container.appendChild(msgContainer);
-
-  let addBtn = document.getElementById("button-message-add");
-  addBtn.addEventListener("click", addMessage);
-}

@@ -1,9 +1,17 @@
 
+#outer-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
 .main {
-    border: 1px solid orange;
+    
     flex-grow: 1;
+    height: 100%;
+
 }
+
 
 .flex-container {
     display: flex;
