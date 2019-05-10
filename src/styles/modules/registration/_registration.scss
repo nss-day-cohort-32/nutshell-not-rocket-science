@@ -1,0 +1,26 @@
+h2 {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.taskItem {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 1rem;
+    width: 12rem;
+    position: relative;
+}
+
+#taskList {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+button {
+    font-size: 1rem;
+    padding: 0.3rem;
+    background-color: orange;
+}

@@ -11,24 +11,67 @@ const mainDiv = document.querySelector("#main-content-area");
 
 //Create all HTML elements
 
+
 let loginDiv = document.createElement("div");
 let inputForm = document.createElement("form");
 let userNameInput = document.createElement("input");
 let emailInput = document.createElement("input");
 let passwordInput = document.createElement("input");
 let signInBtn = document.createElement("button");
-// let registerBtn = document.createElement("button");
+let registerBtn = document.createElement("button");
 
-emailInput.setAttribute("type", "email");
-passwordInput.setAttribute("type", "password");
 
-let formArray = [userNameInput, emailInput, passwordInput, signInBtn];
-formArray.forEach(element => {
-    inputForm.appendChild(element);
-});
+
+
+//Create form labels
+
+
+// let usernameLabel = document.createElement("label");
+// usernameLabel.htmlFor = userNameInput;
+// usernameLabel.innerHTML = "Username";
+
+// let passwordLabel = document.createElement("label");
+// passwordLabel.htmlFor = passwordInput;
+// passwordLabel.innerHTML = "Password";
+
+// let emailLabel = document.createElement("label");
+// emailLabel.htmlFor = passwordInput;
+// emailLabel.innerHTML = "Email";
+
+// emailInput.setAttribute("type", "email");
+// passwordInput.setAttribute("type", "password");
+signInBtn.innerHTML = "Sign In";
+
+inputForm.appendChild(addInput("username", "Username", "text"));
+inputForm.appendChild(addInput("email", "Email", "text"));
+inputForm.appendChild(addInput("password", "Password", "text"));
+
+// let formArray = [userNameInput, emailInput, passwordInput, signInBtn, usernameLabel, passwordLabel, emailLabel];
+// formArray.forEach(element => {
+//     inputForm.appendChild(element);
+// });
 
 loginDiv.appendChild(inputForm);
 mainDiv.appendChild(loginDiv);
 
+
+// just make a function so the text labels go where they're supposed to; called above
+function addInput(inputName, inputTitle, inputType) {
+    let div = document.createElement("div");
+    let label = document.createElement("label");
+    let input = document.createElement("input");
+    input.type = inputType;
+    label.htmlFor = inputName;
+    label.innerHTML = inputTitle;
+    input.id = inputName;
+    div.appendChild(label);
+    div.appendChild(input);
+    div.appendChild(signInBtn);
+    return div;
+
+}
+
+
 // inputForm.addEventListener("submit", logUserIn);
+
 
