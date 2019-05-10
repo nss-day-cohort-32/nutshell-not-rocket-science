@@ -1,5 +1,6 @@
-import API from "./dbCalls";
+import listAPI from "./taskDbCalls";
 
+export const addListHTMLToDOM = () => {
 const tasksHTML = `
 
   <h2>My To Do List</h2>
@@ -17,9 +18,11 @@ const tasksHTML = `
   </div>
   
 `;
+  const container = document.querySelector("#main-content-area");
+  container.innerHTML = tasksHTML;
+};
 
-const container = document.querySelector("#main-content-area");
-container.innerHTML = tasksHTML;
+addListHTMLToDOM();
 
 const addTaskBtn = document.querySelector("#addTaskBtn");
 const taskForm = document.querySelector(".taskForm");
@@ -44,7 +47,7 @@ postTaskBtn.addEventListener("click", function() {
       task: `${taskName}`
   };
 
-  API.postData(userObj);
+  listAPI.postData(userObj);
 
 });
 

@@ -1,12 +1,11 @@
-const baseURL = "http://localhost:8088";
 
-const API = {
+const listAPI = {
     getData: function () {
-        return fetch(`${baseURL}/tasks`)
+        return fetch("http://localhost:8088/tasks")
         .then(response => response.json());
     },
     postData: function (obj) {
-        fetch(`${baseURL}/tasks`, {
+        fetch("http://localhost:8088/tasks", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -16,7 +15,7 @@ const API = {
           .then(response => response.json());
     },
     patchData: function (obj, id) {
-        fetch(`${baseURL}/tasks/${id}`, {
+        fetch(`http://localhost:8088/tasks/${id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json"
@@ -27,4 +26,4 @@ const API = {
     }
 };
 
-export default API;
+export default listAPI;
