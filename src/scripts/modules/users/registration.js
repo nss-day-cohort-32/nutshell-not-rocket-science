@@ -19,10 +19,10 @@ let passwordInput = document.createElement("input");
 let signInBtn = document.createElement("button");
 // let registerBtn = document.createElement("button");
 
-emailForm.setAttribute("type", "email");
-passwordForm.setAttribute("type", "password");
+emailInput.setAttribute("type", "email");
+passwordInput.setAttribute("type", "password");
 
-let formArray = [userNameInupt, emailInput, passwordInput, signInBtn];
+let formArray = [userNameInput, emailInput, passwordInput, signInBtn];
 formArray.forEach(element => {
     inputForm.appendChild(element);
 });
@@ -30,5 +30,5 @@ formArray.forEach(element => {
 loginDiv.appendChild(inputForm);
 mainDiv.appendChild(loginDiv);
 
-inputForm.addEventListener("submit", logUserIn);
+// inputForm.addEventListener("submit", logUserIn);
 
