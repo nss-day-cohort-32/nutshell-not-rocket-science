@@ -4,3 +4,4 @@
 @import "modules/_header.scss";
 @import "modules/_main.scss";
 @import "modules/_sidebar.scss";
+@import "modules/tasks/_tasks.scss";
