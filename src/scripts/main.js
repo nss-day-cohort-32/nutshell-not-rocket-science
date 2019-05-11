@@ -11,7 +11,7 @@ import {
 import {
   setSessionStorage,
   getLoggedInUser
-} from "./modules/sessionStorage";
+} from "./modules/helpers/sessionStorage";
 import {
   getUserFromID
 } from "./modules/API/users";

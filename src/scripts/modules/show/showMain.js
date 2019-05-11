@@ -1,6 +1,6 @@
 import {
   getLoggedInUser
-} from "../sessionStorage";
+} from "../helpers/sessionStorage";
 import {
   showHeader
 } from "./showHeader";
@@ -13,6 +13,9 @@ import {
 import {
   buildDOMElement
 } from "../helpers/buildDOMElement";
+import {
+  addSidebarEventHandler
+} from "../sidebarEventHandler";
 
 export function showMain() {
   console.log("show the main site");
@@ -26,5 +29,5 @@ export function showMain() {
   buildDOMElement("div", wrapper, null, "main-content-area", ["main"]);
 
   // TODO: Activate article page
-
+  addSidebarEventHandler();
 }
