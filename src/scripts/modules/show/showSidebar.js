@@ -6,15 +6,22 @@ import {
 export function showSidebar(user, parentDiv) {
 
   let fragment = document.createDocumentFragment();
-  let sidebar = buildDOMElement("div", fragment, null, "sidebar");
-  let linkUL = buildDOMElement("ul", sidebar, null, ["main-link-ul"]);
-  let linkList = [
-    buildDOMElement("li", linkUL, "Articles", "link-show-articles", ["sidebar-main-link"]),
-    buildDOMElement("li", linkUL, "Tasks", "link-show-tasks", ["sidebar-main-link"]),
-    buildDOMElement("li", linkUL, "Events", "link-show-events", ["sidebar-main-link"]),
-    buildDOMElement("li", linkUL, "Messages", "link-show-messages", ["sidebar-main-link"])
+  let sidebar = buildDOMElement("div", fragment, null, "sidebar", ["pure-menu"]);
+  let linkUL = buildDOMElement("ul", sidebar, null, null, ["main-link-ul", "pure-menu-list"]);
+  let links = [
+    "articles",
+    "tasks",
+    "events",
+    "messages"
   ];
-  buildDOMElement("h4", sidebar, "My Friends", null, ["sidebar-friendList-header"]);
+
+  links.forEach(link => {
+    let titleCase = `${link[0].toUpperCase()}${link.slice(1)}`;
+    let li = buildDOMElement("li", linkUL, null, null, ["pure-menu-item"]);
+    buildDOMElement("a", li, titleCase, `link-show-${link}`, ["sidebar-main-link", "pure-menu-link"]);
+  });
+  buildDOMElement("div", sidebar, " ");
+  buildDOMElement("span", sidebar, "My Friends", null, ["sidebar-friendList-header", "pure-menu-heading"]);
   let friendUL = buildDOMElement("ul", sidebar, null, "friendList-ul");
 
   //  TODO: Get friend list

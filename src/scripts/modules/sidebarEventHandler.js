@@ -8,7 +8,6 @@ export function addSidebarEventHandler() {
 
 function switchboard(event) {
   let target = event.target.id;
-  console.log(target);
   if (target !== "") {
     let split = target.split("-");
     if (split[0] === "link") handleLinkClick(split[2]);
@@ -28,25 +27,26 @@ function handleLinkClick(linkType) {
 
       console.log("articles", msg);
       break;
+
+
     case "tasks":
       setActiveLink("tasks");
 
       console.log("tasks", msg);
-
-      // show tasks
       break;
+
+
     case "events":
       setActiveLink("events");
 
       console.log("events", msg);
-
-      // show events
       break;
+
+
     case "messages":
       setActiveLink("messages");
       console.log("messages", msg);
 
-      // show messages
       break;
   }
 
@@ -56,7 +56,7 @@ function handleLinkClick(linkType) {
 
 function setActiveLink(activeLink) {
   let links = document.querySelectorAll(".sidebar-main-link");
-  links.forEach(link => link.classList.remove("active"));
+  links.forEach(link => link.classList.remove("sidebar-active", "pure-menu-selected"));
   let newActive = document.getElementById(`link-show-${activeLink}`);
-  newActive.classList.add("active");
+  newActive.classList.add("sidebar-active", "pure-menu-selected");
 }

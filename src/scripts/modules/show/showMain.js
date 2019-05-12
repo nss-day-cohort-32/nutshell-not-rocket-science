@@ -21,12 +21,12 @@ export function showMain() {
   console.log("show the main site");
   // show main site if user is logged in.
   let user = getLoggedInUser();
-
-  let root = document.getElementById("root");
-  showHeader(user, root);
-  let wrapper = buildDOMElement("div", root, null, null, ["wrapper", "flex-container"]);
-  showSidebar(user, wrapper);
-  buildDOMElement("div", wrapper, null, "main-content-area", ["main"]);
+  let root = document.querySelector("#root");
+  showSidebar(user, root);
+  let rootInner = buildDOMElement("div", root, null, null, ["root-inner"]);
+  rootInner.appendChild(showHeader(user));
+  let wrapper = buildDOMElement("div", rootInner, null, null, ["wrapper", "flex-container"]);
+  buildDOMElement("div", wrapper, "Hello world", "main-content-area", ["main"]);
 
   // TODO: Activate article page
   addSidebarEventHandler();

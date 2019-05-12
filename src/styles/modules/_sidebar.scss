@@ -1,9 +1,29 @@
 #sidebar {
     width: 20%;
-    padding: 0 .5rem;
-    background-color: lightblue;
+    height: 100%;
+    background-color: $mainBlue;
+    position: fixed;
 }
 
-#sidebar ul {
-    margin: 1rem 0;
+#sidebar:first-child {
+    margin-top: 40px;
+}
+
+.sidebar-friendList-header {
+    color: #eee;
+}
+
+
+
+.sidebar-main-link {
+    color: #eee;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.sidebar-active,
+.pure-menu-link:hover {
+    font-size: 1.6rem;
+    color: black;
+    background-color: #eee;
 }
