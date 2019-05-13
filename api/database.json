@@ -45,16 +45,24 @@
     {
       "id": 1,
       "userId": 1,
-      "name": "Fun Concert",
-      "eventDate": "2014-01-01",
-      "eventTime": "2012-04-23T18:25:43",
+      "event": "Fun Concert",
+      "date": "2014-01-01",
+      "time": "12:25:PM",
       "location": "Nashville"
+    },
+    {
+      "userId": "7",
+      "event": "project-3",
+      "date": "2019-05-14",
+      "time": "12:59",
+      "location": "nashville",
+      "id": 2
     }
   ],
   "tasks": [
     {
       "id": 1,
-      "isComplete": false,
+      "isComplete": true,
       "expectedCompletion": "2019-05-23",
       "userId": 1,
       "task": "eat all green Skittles"

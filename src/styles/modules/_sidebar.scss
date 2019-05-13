@@ -1,34 +1,34 @@
 #sidebar {
-    width: 20%;
-    height: 100%;
-    background-color: $mainBlue;
-    position: fixed;
+  width: 20%;
+  height: 100%;
+  background-color: $mainBlue;
+  position: fixed;
 }
 
 #sidebar:first-child {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .sidebar-friendList-header {
-    color: #eee;
+  color: #eee;
 }
 
 .main-link-div {
-    height: 180px;
+  height: 180px;
 }
 
 .sidebar-main-link {
-    color: #eee;
-    transition: all .3s;
-    cursor: pointer;
+  color: #eee;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
 .sidebar-active,
 .pure-menu-link:hover {
-    color: black;
-    background-color: #eee;
+  color: black;
+  background-color: #eee;
 }
 
 .sidebar-active {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
 }
