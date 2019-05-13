@@ -7,7 +7,8 @@ export function showSidebar(user, parentDiv) {
 
   let fragment = document.createDocumentFragment();
   let sidebar = buildDOMElement("div", fragment, null, "sidebar", ["pure-menu"]);
-  let linkUL = buildDOMElement("ul", sidebar, null, null, ["main-link-ul", "pure-menu-list"]);
+  let linkULContainer = buildDOMElement("div", sidebar, null, null, ["main-link-div"]);
+  let linkUL = buildDOMElement("ul", linkULContainer, null, null, ["main-link-ul", "pure-menu-list"]);
   let links = [
     "articles",
     "tasks",
