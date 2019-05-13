@@ -95,7 +95,7 @@
       "id": 22
     },
     {
-      "isComplete": false,
+      "isComplete": true,
       "expectedCompletion": "2019-05-01",
       "userId": "4",
       "task": "edit the edit tasks task",
