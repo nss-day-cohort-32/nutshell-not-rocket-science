@@ -20,13 +20,12 @@ export const displayTaskList = () => {
       taskList.innerHTML += taskItem;
     }
   }));
-
+};
 
 
 
 
   main.addEventListener("click", function (e) {
-    console.log(e.target);
     if (e.target.id === "addTaskBtn") {
       document.querySelector(".taskForm").classList.remove("hidden");
     } else if (e.target.id === "postTaskBtn") {
@@ -75,4 +74,3 @@ export const displayTaskList = () => {
 
 
 
-};
