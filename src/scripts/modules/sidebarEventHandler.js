@@ -1,0 +1,62 @@
+export function addSidebarEventHandler() {
+
+  let sidebar = document.getElementById("sidebar");
+
+  sidebar.addEventListener("click", switchboard);
+}
+
+
+function switchboard(event) {
+  let target = event.target.id;
+  if (target !== "") {
+    let split = target.split("-");
+    if (split[0] === "link") handleLinkClick(split[2]);
+
+
+    // TODO: handle friend action clicks.
+  }
+}
+
+
+function handleLinkClick(linkType) {
+  let msg = "Replace the console.log located in the 'sidebarEventHandler.js' file with the function call to show your content";
+
+  switch (linkType) {
+    case "articles":
+      setActiveLink("articles");
+
+      console.log("articles", msg);
+      break;
+
+
+    case "tasks":
+      setActiveLink("tasks");
+
+      console.log("tasks", msg);
+      break;
+
+
+    case "events":
+      setActiveLink("events");
+
+      console.log("events", msg);
+      break;
+
+
+    case "messages":
+      setActiveLink("messages");
+      console.log("messages", msg);
+
+      break;
+  }
+
+
+}
+
+
+function setActiveLink(activeLink) {
+  let links = document.querySelectorAll(".sidebar-main-link");
+  links.forEach(link => link.classList.remove("sidebar-active", "pure-menu-selected"));
+  let newActive = document.getElementById(`link-show-${activeLink}`);
+  newActive.classList.add("sidebar-active", "pure-menu-selected");
+}
