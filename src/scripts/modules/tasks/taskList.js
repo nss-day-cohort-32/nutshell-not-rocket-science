@@ -1,7 +1,9 @@
 import listAPI from "./taskDbCalls";
 
-// function to print tasks from the database in the DOM
 export const displayTaskList = () => {
+    const taskList = document.querySelector("#taskList");
+    taskList.innerHTML = "";
+
     listAPI.getData().then(data => data.forEach(taskObj => {
 
         if (taskObj.isComplete === false) { //only shows tasks that haven't been completed
@@ -13,41 +15,53 @@ export const displayTaskList = () => {
                 <input type="checkbox" name="isComplete" id="checkbox-${taskObj.id}">
             </div>
         `;
-        const taskList = document.querySelector("#taskList");
+
         taskList.innerHTML += taskItem;
         }
     }));
-};
+  };
 
-displayTaskList();
-
-// function to update database objects from uncompleted to complete
 document.addEventListener("click", function(e) {
-    let obj = {isComplete: true};
-    let id = e.target.id.split("-").pop();
-
-    if (e.srcElement.checked) {
-        listAPI.patchData(obj, id);
+    console.log(e.target);
+    if (e.target.id === "addTaskBtn") {
+      document.querySelector(".taskForm").classList.remove("hidden");
     }
-});
+    else if (e.target.id === "postTaskBtn") {
+      const taskNameInput = document.querySelector("#taskNameInput");
+      const taskCompletionInput = document.querySelector("#taskCompletionInput");
 
-// function that allows a user to edit the names of their tasks in the DOM, which updates the database object
-document.addEventListener("click", function(e) {
-    let id = e.target.id.split("-").pop();
-    let headerVal = e.target.textContent;
+      let taskName = taskNameInput.value;
+      let taskComplete = taskCompletionInput.value;
+      let userId = 4; //TO DO - get userId
 
-    if (e.target.className === "taskHeader") {
-        e.target.innerHTML = `<input id='newName' type='text' value='${headerVal}'>`;
+      // example object to populate database
+      let userObj = {
+          isComplete: false,
+          expectedCompletion: `${taskComplete}`,
+          userId: `${userId}`,
+          task: `${taskName}`
+      };
 
-        e.target.addEventListener("keyup", function(e) {
+      listAPI.postData(userObj).then(displayTaskList);
 
-            if (e.keyCode === 13) { // 13 is enter
-                let input = document.querySelector("#newName").value;
-                let obj = {task: `${input}`};
+    } // function to update database objects from uncompleted to complete
+      else if (e.target.checked) {
+        let obj = {isComplete: true};
+        let id = e.target.id.split("-").pop();
+        listAPI.patchData(obj, id).then(displayTaskList);
+    } else if (e.target.className === "taskHeader") {
+    // allows a user to edit the names of their tasks in the DOM, which updates the database object
+      let id = e.target.id.split("-").pop();
+      let headerVal = e.target.textContent;
+      e.target.innerHTML = `<input type='text' id="new" value='${headerVal}'>`;
+      e.target.addEventListener("keyup", function(e) {
 
-                listAPI.patchData(obj, id);
-            }
-        });
-    }
-});
+        if (e.keyCode === 13) { // 13 is enter
+            let input = document.querySelector("#new").value;
+            let obj = {task: `${input}`};
 
+            listAPI.patchData(obj, id).then(displayTaskList);
+        }
+      });
+    };
+  });

@@ -5,7 +5,7 @@ const listAPI = {
         .then(response => response.json());
     },
     postData: function (obj) {
-        fetch("http://localhost:8088/tasks", {
+        return fetch("http://localhost:8088/tasks", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -15,7 +15,7 @@ const listAPI = {
           .then(response => response.json());
     },
     patchData: function (obj, id) {
-        fetch(`http://localhost:8088/tasks/${id}`, {
+        return fetch(`http://localhost:8088/tasks/${id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json"

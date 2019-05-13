@@ -4,7 +4,7 @@ import {
 } from "../API/users";
 import {
   setSessionStorage
-} from "../sessionStorage";
+} from "../helpers/sessionStorage";
 
 
 export function doLogin(userFromRegister) {
