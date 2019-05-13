@@ -6,6 +6,8 @@ import {
 import {
   showMessages
 } from "./messages/showMessages";
+import { showEditModal } from "./articles/editModal";
+
 
 export function addSidebarEventHandler() {
 
