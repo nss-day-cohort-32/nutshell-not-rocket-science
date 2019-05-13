@@ -1,13 +1,19 @@
 import { getArticles } from "../API/articles";
 
+const mainDiv = document.querySelector("#main-content-area");
 
+console.log(mainDiv);
 function addInput(inputName, inputTitle, inputType) {
+    let div = document.createElement("div");
     let label = document.createElement("label");
     let input = document.createElement("input");
     input.type = inputType;
     label.htmlFor = inputName;
     label.innerHTML = inputTitle;
     input.id = inputName;
+    div.appendChild(label);
+    div.appendChild(input);
+    return div;
 };
 
 // make form: title, synopsis, url, save button
@@ -29,7 +35,7 @@ mainDiv.appendChild(formDiv);
 export function showArticles() {
 
     // target main div
-    const mainDiv = document.querySelector("#main-content-area");
+    // const mainDiv = document.querySelector("#main-content-area");
     getArticles()
         .then(articlesArray => {
             articlesArray.forEach(article => {
