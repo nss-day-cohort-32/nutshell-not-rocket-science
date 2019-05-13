@@ -33,7 +33,10 @@
     "postcss-simple-vars": "^5.0.2"
   },
   "dependencies": {
+    "material-components-web": "^2.1.1",
     "moment": "^2.24.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "postcss-math": "0.0.10",
+    "purecss": "^1.0.0"
   }
 }
