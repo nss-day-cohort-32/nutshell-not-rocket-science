@@ -5,10 +5,13 @@ module.exports = {
       require("postcss-import")(),
       require("postcss-mixins")(),
       require("postcss-simple-vars")(),
+      require("postcss-math")(),
       require("postcss-nested")(),
       require("postcss-preset-env")(),
       require("pixrem")(),
-      require("autoprefixer")({ browsers: "last 2 versions" })
+      require("autoprefixer")({
+        browsers: "last 2 versions"
+      })
     ]
   },
   dist: {

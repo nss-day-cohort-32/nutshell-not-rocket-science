@@ -26,7 +26,12 @@ export function updateOnlineStatus(user, isOnline) {
     .then(response => response.json());
 }
 
-function getUser(params) {
+export function getUser(params) {
   return fetch(`${users}${params}`)
+    .then(response => response.json());
+}
+
+export function getUserFromID(id) {
+  return fetch(`${users}/${id}`)
     .then(response => response.json());
 }

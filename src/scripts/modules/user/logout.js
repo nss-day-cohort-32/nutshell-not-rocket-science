@@ -4,11 +4,9 @@ import {
 import {
   getLoggedInUser,
   removeSessionStorage
-} from "../sessionStorage";
+} from "../helpers/sessionStorage";
 
 export function logout() {
   removeSessionStorage();
-  return updateOnlineStatus({
-    id: getLoggedInUser()
-  }, false);
+  return updateOnlineStatus(getLoggedInUser(), false);
 }
