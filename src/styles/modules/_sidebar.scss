@@ -25,7 +25,10 @@
 
 .sidebar-active,
 .pure-menu-link:hover {
-    font-size: 1.6rem;
     color: black;
     background-color: #eee;
+}
+
+.sidebar-active {
+    font-size: 1.6rem;
 }
