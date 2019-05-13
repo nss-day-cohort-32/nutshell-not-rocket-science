@@ -1,38 +1,44 @@
 import { getArticles } from "../API/articles";
 
-const mainDiv = document.querySelector("#main-content-area");
 
-console.log(mainDiv);
-function addInput(inputName, inputTitle, inputType) {
-    let div = document.createElement("div");
-    let label = document.createElement("label");
-    let input = document.createElement("input");
-    input.type = inputType;
-    label.htmlFor = inputName;
-    label.innerHTML = inputTitle;
-    input.id = inputName;
-    div.appendChild(label);
-    div.appendChild(input);
-    return div;
-};
+export function addArticle() {
 
-// make form: title, synopsis, url, save button
-const formDiv = document.createElement("div");
-const inputForm = document.createElement("form");
+    const mainDiv = document.querySelector("#main-content-area");
 
-inputForm.appendChild(addInput("title", "Title", "text"));
-inputForm.appendChild(addInput("synopsis", "Synopsis", "text"));
-inputForm.appendChild(addInput("url", "URL", "text"));
+    console.log(mainDiv);
+    function addInput(inputName, inputTitle, inputType) {
+        let div = document.createElement("div");
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        input.type = inputType;
+        label.htmlFor = inputName;
+        label.innerHTML = inputTitle;
+        input.id = inputName;
+        div.appendChild(label);
+        div.appendChild(input);
+        return div;
+    };
 
-formDiv.appendChild(inputForm);
+    // make form: title, synopsis, url, save button
+    const formDiv = document.createElement("div");
+    const inputForm = document.createElement("form");
 
-let saveBtn = document.createElement("button");
-saveBtn.innerHTML = "Save";
+    inputForm.appendChild(addInput("title", "Title", "text"));
+    inputForm.appendChild(addInput("synopsis", "Synopsis", "text"));
+    inputForm.appendChild(addInput("url", "URL", "text"));
 
-formDiv.appendChild(saveBtn);
-mainDiv.appendChild(formDiv);
+    formDiv.appendChild(inputForm);
 
+    let saveBtn = document.createElement("button");
+    saveBtn.innerHTML = "Save";
+
+    formDiv.appendChild(saveBtn);
+    mainDiv.appendChild(formDiv);
+
+
+}
 export function showArticles() {
+    const mainDiv = document.querySelector("#main-content-area");
 
     // target main div
     // const mainDiv = document.querySelector("#main-content-area");
