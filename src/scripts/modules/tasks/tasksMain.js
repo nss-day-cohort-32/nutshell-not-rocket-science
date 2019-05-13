@@ -1,7 +1,15 @@
-import {displayTaskList} from "./taskList";
+import {
+  displayTaskList
+} from "./taskList";
+import {
+  addTaskEventListener
+} from "./taskEvents";
+
+
+
 
 export const addListHTMLToDOM = () => {
-const tasksHTML = `
+  const tasksHTML = `
 
   <h2>My To Do List</h2>
 
@@ -22,6 +30,5 @@ const tasksHTML = `
   container.innerHTML = tasksHTML;
 
   displayTaskList();
-
+  addTaskEventListener();
 };
-

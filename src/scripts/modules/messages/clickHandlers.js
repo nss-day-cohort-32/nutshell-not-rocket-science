@@ -12,6 +12,9 @@ import {
 import {
   showEditModal
 } from "./editModal";
+import {
+  getLoggedInUser
+} from "../helpers/sessionStorage";
 
 const moment = require("moment");
 
@@ -20,6 +23,15 @@ export function addClickHandlers() {
 
   let addBtn = document.getElementById("button-message-add");
   addBtn.addEventListener("click", addMessageHandler);
+
+  let textBox = document.getElementById("message-textbox");
+  textBox.addEventListener("keyup", function (event) {
+    console.log(event);
+    if (event.keyCode === 13) {
+      console.log("enter detected");
+      addMessageHandler(event);
+    }
+  });
 
   let innerContainer = document.getElementById("msg-div");
   innerContainer.addEventListener("click", containerClickHandler);
@@ -38,12 +50,11 @@ function containerClickHandler(event) {
 
 
 function addMessageHandler(event) {
-  let loggedInUserId = 1;
-
-  let newMessage = buildMessageObject(event, loggedInUserId);
+  let user = getLoggedInUser();
+  let newMessage = buildMessageObject(event, user.id);
 
   addMessage(newMessage)
-    .then(showNewMessages);
+    .then(showInitialMessages);
 };
 
 
@@ -52,10 +63,6 @@ function deleteButtonHandler(id) {
     .then(refreshMessages);
 }
 
-
-function editButtonHandler(id) {
-  console.log("edit me!");
-}
 
 
 
