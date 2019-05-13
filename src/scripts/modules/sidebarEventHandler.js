@@ -1,3 +1,6 @@
+import { showArticles } from "./articles/Articles";
+
+
 export function addSidebarEventHandler() {
 
   let sidebar = document.getElementById("sidebar");
@@ -24,8 +27,7 @@ function handleLinkClick(linkType) {
   switch (linkType) {
     case "articles":
       setActiveLink("articles");
-
-      console.log("articles", msg);
+      showArticles();
       break;
 
 
