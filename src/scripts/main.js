@@ -18,16 +18,16 @@ import {
 
 
 //  Hard coding a fetch call with the 'Carly' user for now.
-getUserFromID(1)
-  .then(user => {
-    setSessionStorage(user);
-    showMain(user);
-  });
+// getUserFromID(1)
+//   .then(user => {
+//     setSessionStorage(user);
+//     showMain(user);
+//   });
 
 // To work on the welcome screen, comment out the above fetch call
 // and replace with:
 
-//  showWelcome();
+showWelcome();
 
 
 
