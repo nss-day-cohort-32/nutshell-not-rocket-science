@@ -1,6 +1,11 @@
 import { showArticles } from "./articles/Articles";
 
-import { addListHTMLToDOM } from "./tasks/tasksMain";
+import {
+  addListHTMLToDOM
+} from "./tasks/tasksMain";
+import {
+  showMessages
+} from "./messages/showMessages";
 
 export function addSidebarEventHandler() {
 
@@ -47,7 +52,7 @@ function handleLinkClick(linkType) {
 
     case "messages":
       setActiveLink("messages");
-      console.log("messages", msg);
+      showMessages();
 
       break;
   }
