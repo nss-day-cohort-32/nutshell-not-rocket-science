@@ -30,7 +30,7 @@ function switchboard(event) {
 function handleLinkClick(linkType) {
   let msg =
     "Replace the console.log located in the 'sidebarEventHandler.js' file with the function call to show your content";
-
+  document.getElementById("main-content-area").innerHTML = "";
   switch (linkType) {
     case "articles":
       setActiveLink("articles");
