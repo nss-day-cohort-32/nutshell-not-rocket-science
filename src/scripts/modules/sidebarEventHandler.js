@@ -1,5 +1,6 @@
 import { showArticles } from "./articles/Articles";
 
+import { addListHTMLToDOM } from "./tasks/tasksMain";
 
 export function addSidebarEventHandler() {
 
@@ -20,7 +21,6 @@ function switchboard(event) {
   }
 }
 
-
 function handleLinkClick(linkType) {
   let msg = "Replace the console.log located in the 'sidebarEventHandler.js' file with the function call to show your content";
 
@@ -33,8 +33,8 @@ function handleLinkClick(linkType) {
 
     case "tasks":
       setActiveLink("tasks");
-
       console.log("tasks", msg);
+      addListHTMLToDOM();
       break;
 
 
