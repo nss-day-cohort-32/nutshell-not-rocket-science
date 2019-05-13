@@ -1,0 +1,128 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "userName": "Carly",
+      "email": "carly@carly.com",
+      "password": "carly",
+      "isOnline": false,
+      "userPhoto": "www.google.com/image"
+    },
+    {
+      "id": 2,
+      "userName": "Deep",
+      "email": "deep@carly.com",
+      "password": "deep",
+      "isOnline": false,
+      "userPhoto": "www.google.com/image"
+    }
+  ],
+  "friends": [
+    {
+      "id": 1,
+      "sourceId": 1,
+      "userId": 2
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "This thing happened",
+      "url": "www.google.com/event",
+      "synopsis": "It occurred and we all knew about it",
+      "postedTime": "2012-04-23T18:25:43"
+    }
+  ],
+  "userEvents": [
+    {
+      "id": 1,
+      "eventId": 1,
+      "userId": 1
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "userId": 1,
+      "name": "Fun Concert",
+      "eventDate": "2014-01-01",
+      "eventTime": "2012-04-23T18:25:43",
+      "location": "Nashville"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "isComplete": false,
+      "expectedCompletion": "2019-05-23",
+      "userId": 1,
+      "task": "eat all green Skittles"
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "2019-05-21",
+      "userId": "4",
+      "task": "give Bryan a piggy back ride",
+      "id": 18
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "2019-05-17",
+      "userId": "4",
+      "task": "buy penguin a vest",
+      "id": 19
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "2019-05-15",
+      "userId": "4",
+      "task": "dad vacation vibez",
+      "id": 20
+    },
+    {
+      "isComplete": true,
+      "expectedCompletion": "2019-05-09",
+      "userId": "4",
+      "task": "penguin2",
+      "id": 21
+    },
+    {
+      "isComplete": true,
+      "expectedCompletion": "2019-05-17",
+      "userId": "4",
+      "task": "eff up Deep's car",
+      "id": 22
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "2019-05-01",
+      "userId": "4",
+      "task": "edit the edit tasks task",
+      "id": 23
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "2019-05-10",
+      "userId": "4",
+      "task": "high five the TAs",
+      "id": 24
+    },
+    {
+      "isComplete": true,
+      "expectedCompletion": "2019-05-07",
+      "userId": "4",
+      "task": "complete me",
+      "id": 25
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "userId": 1,
+      "message": "Sup bruhs",
+      "postedTime": "2012-04-23T18:25:43",
+      "feeling": "great"
+    }
+  ]
+}
