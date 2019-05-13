@@ -15,7 +15,7 @@ Functions available to other modules:
 */
 
 const messages = "http://localhost:8088/messages",
-  messagesWithUser = `${messages}?_expand=user&_sort=postedTime&_order=desc`;
+  messagesWithUser = `${messages}?_expand=user&_sort=postedTime&_order=asc`;
 
 export function fetchMessages() {
   return fetch(messagesWithUser)

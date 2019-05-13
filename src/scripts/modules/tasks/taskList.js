@@ -3,6 +3,7 @@ import listAPI from "./taskDbCalls";
 export const displayTaskList = () => {
   const taskList = document.querySelector("#taskList");
   const main = document.querySelector("#main-content-area");
+  console.log(taskList);
   taskList.innerHTML = "";
 
   listAPI.getData().then(data => data.forEach(taskObj => {
@@ -20,6 +21,7 @@ export const displayTaskList = () => {
       taskList.innerHTML += taskItem;
     }
   }));
+<<<<<<< HEAD
 };
 
 
@@ -74,3 +76,7 @@ export const displayTaskList = () => {
 
 
 
+=======
+
+};
+>>>>>>> 3a8cb604b97495af2443d45ebf5c20e28fda7d8d
