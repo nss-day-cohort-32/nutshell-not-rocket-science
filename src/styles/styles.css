@@ -6,11 +6,7 @@
 @import "modules/_main.scss";
 @import "modules/_wrapper.scss";
 @import "modules/_sidebar.scss";
-<<<<<<< HEAD
-@import "modules/tasks/_tasks.scss";
-@import "./modules/events/_events.scss";
-=======
+@import "modules/events/_events.scss";
 @import "modules/_message.scss";
 @import "modules/_modal.scss";
 @import "modules/tasks/_tasks.scss";
->>>>>>> master
