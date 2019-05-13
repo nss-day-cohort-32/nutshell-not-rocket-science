@@ -17,7 +17,7 @@ export function showArticles() {
                 let articleSyn = document.createElement("p");
 
                 //Set elements value to values in current object in loop
-                articleTitle.innerHTML = article.articleTitle;
+                articleTitle.innerHTML = article.title;
                 articleUrl.innerHTML = article.url;
                 articleSyn.innerHTML = article.synopsis;
 
@@ -25,15 +25,18 @@ export function showArticles() {
                 articleDiv.appendChild(articleTitle);
                 articleDiv.appendChild(articleUrl);
                 articleDiv.appendChild(articleSyn);
+                // console.log(articleDiv);
 
                 //append to list div
-                articleDivList.appendChild(articleDiv);
-
+                // articleDivList.appendChild(articleDiv);
+                mainDiv.appendChild(articleDiv);
             });
             //Append all articles to main div
-            mainDiv.appendChild(articleDivList);
+            // mainDiv.appendChild(articleDiv);
 
             // eslint-disable-next-line semi
         })
 
 }
+
+// need to be able to add, delete and edit //
