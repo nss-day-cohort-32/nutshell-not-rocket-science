@@ -1,9 +1,19 @@
 // import API from "./modules/API.js";
+<<<<<<< HEAD
 // import "./modules/tasks/dbCalls";
 // import "./modules/tasks/tasksMain";
 // import "./modules/tasks/taskList";
 import { showMain } from "./modules/show/showMain";
 import { showWelcome } from "./modules/show/showWelcome";
+=======
+
+import {
+  showMain
+} from "./modules/show/showMain";
+import {
+  showWelcome
+} from "./modules/show/showWelcome";
+>>>>>>> master
 import {
   setSessionStorage,
   getLoggedInUser
