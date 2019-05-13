@@ -7,13 +7,21 @@
       "password": "carly",
       "isOnline": false,
       "userPhoto": "www.google.com/image"
+    },
+    {
+      "id": 2,
+      "userName": "Deep",
+      "email": "deep@carly.com",
+      "password": "deep",
+      "isOnline": false,
+      "userPhoto": "www.google.com/image"
     }
   ],
   "friends": [
     {
       "id": 1,
-      "userId": 1,
-      "friendId": 1
+      "sourceId": 1,
+      "userId": 2
     }
   ],
   "articles": [
@@ -69,14 +77,14 @@
       "isComplete": false,
       "expectedCompletion": "2019-05-15",
       "userId": "4",
-      "task": "change the task",
+      "task": "dad vacation vibez",
       "id": 20
     },
     {
-      "isComplete": false,
+      "isComplete": true,
       "expectedCompletion": "2019-05-09",
       "userId": "4",
-      "task": "penguin",
+      "task": "penguin2",
       "id": 21
     },
     {
@@ -85,6 +93,27 @@
       "userId": "4",
       "task": "eff up Deep's car",
       "id": 22
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "2019-05-01",
+      "userId": "4",
+      "task": "edit the edit tasks task",
+      "id": 23
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "2019-05-10",
+      "userId": "4",
+      "task": "high five the TAs",
+      "id": 24
+    },
+    {
+      "isComplete": true,
+      "expectedCompletion": "2019-05-07",
+      "userId": "4",
+      "task": "complete me",
+      "id": 25
     }
   ],
   "messages": [
