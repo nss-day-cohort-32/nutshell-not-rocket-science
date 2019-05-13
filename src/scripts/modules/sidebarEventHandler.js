@@ -1,5 +1,13 @@
-import { addListHTMLToDOM } from "./tasks/tasksMain";
-import { showMessages } from "./messages/showMessages";
+import { showArticles } from "./articles/Articles";
+
+import {
+  addListHTMLToDOM
+} from "./tasks/tasksMain";
+import {
+  showMessages
+} from "./messages/showMessages";
+import { showEditModal } from "./articles/editModal";
+
 import { addEvents } from "./events/eventsMain";
 import { showEvents } from "./events/eventsList";
 
@@ -22,12 +30,11 @@ function switchboard(event) {
 function handleLinkClick(linkType) {
   let msg =
     "Replace the console.log located in the 'sidebarEventHandler.js' file with the function call to show your content";
-
+  document.getElementById("main-content-area").innerHTML = "";
   switch (linkType) {
     case "articles":
       setActiveLink("articles");
-
-      console.log("articles", msg);
+      showArticles();
       break;
 
     case "tasks":

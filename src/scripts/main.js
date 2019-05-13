@@ -17,7 +17,7 @@ getUserFromID(1).then(user => {
 // To work on the welcome screen, comment out the above fetch call
 // and replace with:
 
-//  showWelcome();
+// showWelcome();
 
 // // Final code should look like this:
 // if (!getLoggedInUser()) {
