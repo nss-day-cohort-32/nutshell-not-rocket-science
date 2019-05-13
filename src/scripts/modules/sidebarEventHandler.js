@@ -1,5 +1,13 @@
-import { addListHTMLToDOM } from "./tasks/tasksMain";
-import { showMessages } from "./messages/showMessages";
+import { showArticles } from "./articles/Articles";
+
+import {
+  addListHTMLToDOM
+} from "./tasks/tasksMain";
+import {
+  showMessages
+} from "./messages/showMessages";
+import { showEditModal } from "./articles/editModal";
+
 import { addEvents } from "./events/eventsMain";
 import { showEvents } from "./events/eventsList";
 
@@ -26,8 +34,7 @@ function handleLinkClick(linkType) {
   switch (linkType) {
     case "articles":
       setActiveLink("articles");
-
-      console.log("articles", msg);
+      showArticles();
       break;
 
     case "tasks":
