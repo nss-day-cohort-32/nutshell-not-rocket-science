@@ -7,5 +7,5 @@
 @import "modules/_wrapper.scss";
 @import "modules/_sidebar.scss";
 @import "modules/_message.scss";
+@import "modules/_modal.scss";
 @import "modules/tasks/_tasks.scss";
-

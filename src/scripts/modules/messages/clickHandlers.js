@@ -9,6 +9,9 @@ import {
 import {
   refreshMessages
 } from "./refreshMessages";
+import {
+  showEditModal
+} from "./editModal";
 
 const moment = require("moment");
 
@@ -27,7 +30,7 @@ export function addClickHandlers() {
 
 function containerClickHandler(event) {
   let idSplit = event.target.id.split("--");
-  if (idSplit[1] === "edit") editButtonHandler(idSplit[2]);
+  if (idSplit[1] === "edit") showEditModal((event.target.id));
   if (idSplit[1] === "delete") deleteButtonHandler(idSplit[2]);
 }
 

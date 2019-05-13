@@ -34,7 +34,7 @@ export function addMessage(newMessage) {
 }
 export function editMessage(messageID, newMessage) {
   return fetch(`${messages}/${messageID}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
