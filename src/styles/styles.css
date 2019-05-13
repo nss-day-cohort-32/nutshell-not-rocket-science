@@ -4,5 +4,8 @@
 @import "../../node_modules/purecss/build/pure.css";
 @import "modules/_header.scss";
 @import "modules/_main.scss";
+@import "modules/_wrapper.scss";
 @import "modules/_sidebar.scss";
+@import "modules/_message.scss";
+@import "modules/_modal.scss";
 @import "modules/tasks/_tasks.scss";
