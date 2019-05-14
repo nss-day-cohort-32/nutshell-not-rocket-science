@@ -1,4 +1,4 @@
-h2 {
+#hEvent {
   text-align: center;
 }
 
@@ -26,11 +26,12 @@ button {
 }
 
 #eventItem-latest {
-  background-color: yellow;
+  background-color: lightgray;
+  box-shadow: 5px 10px lightblue;
 }
 
 #date-latest,
 #time-latest,
 #location-latest {
-  font-weight: bold;
+  font-weight: bolder;
 }
