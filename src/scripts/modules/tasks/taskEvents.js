@@ -2,6 +2,7 @@ import listAPI from "./taskDbCalls";
 import {
   displayTaskList
 } from "./taskList";
+import { getLoggedInUser } from "../helpers/sessionStorage";
 
 export function addTaskEventListener() {
   const main = document.querySelector("#main-content-area");
@@ -16,13 +17,13 @@ export function addTaskEventListener() {
 
       let taskName = taskNameInput.value;
       let taskComplete = taskCompletionInput.value;
-      let userId = 4; //TO DO - get userId
+      let user = getLoggedInUser();
 
       // example object to populate database
       let userObj = {
         isComplete: false,
         expectedCompletion: `${taskComplete}`,
-        userId: `${userId}`,
+        userId: `${user.id}`,
         task: `${taskName}`
       };
 
