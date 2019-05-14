@@ -13,7 +13,7 @@
       "userName": "Deep",
       "email": "deep@carly.com",
       "password": "deep",
-      "isOnline": false,
+      "isOnline": true,
       "userPhoto": "www.google.com/image"
     },
     {
