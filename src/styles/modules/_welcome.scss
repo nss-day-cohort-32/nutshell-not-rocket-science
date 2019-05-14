@@ -1,5 +1,7 @@
 .welcome {
-  width: 60%;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
 
   &-legend {
     display: flex;
@@ -11,5 +13,11 @@
   &-header-active {
     background-color: $mainBlue;
     opacity: 0.8;
+  }
+
+  &-headline {
+    font-size: 4.5rem;
+    font-weight: 100;
+    text-align: center;
   }
 }
