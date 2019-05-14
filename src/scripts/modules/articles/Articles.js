@@ -1,4 +1,6 @@
 import { getArticles } from "../API/articles";
+import { postArticle } from "../API/articles";
+
 // import { showEditModal } from "../articles/editModal";
 
 
@@ -85,14 +87,6 @@ import { getArticles } from "../API/articles";
 
 // make form: title, synopsis, url, save button
 
-<form class="artForm hidden pure-form">
-    <label for="artName">Article</label>
-    <input type="text" id="articleTitleInput" name="taskName" required></input>
-    <label for="taskCompletion">Expected Completion Date</label>
-    <input type="date" id="taskCompletionInput" name="taskCompletion" required></input>
-    <button id="postTaskBtn">Save Your Task</button>
-</form>;
-
 // const formDiv = document.createElement("div");
 // const articleForm = document.createElement("form");
 // const addArtBtn = document.createElement("button");
@@ -122,18 +116,27 @@ import { getArticles } from "../API/articles";
 // }
 
 export function showArticles() {
-
-    // target main div
     const mainDiv = document.querySelector("#main-content-area");
+    // target main div
     getArticles()
         .then(articlesArray => {
             articlesArray.forEach(article => {
-
+                const artForm = `
+                <form class="artForm pure-form">
+                    <label for="artName">Article</label>
+                    <input type="text" id="articleTitleInput" name="articleTitle" required></input>
+                    <label for="artSynopsis">Synopsis</label>
+                    <input type="text" id="articleSynInput" name="articleSyn" required></input>
+                    <label for="artUrl">URL</label>
+                    <input type="text" id="articleUrlInput" name="articleUrl" required></input>
+                    <button id="postArtBtn">Add Article</button>
+                </form>`;
                 //Create elements
                 let articleDiv = document.createElement("div");
                 let articleTitle = document.createElement("h3");
                 let articleUrl = document.createElement("h4");
                 let articleSyn = document.createElement("p");
+                let addDiv = document.createElement("div");
 
                 //Set elements value to values in current object in loop
                 articleTitle.innerHTML = article.title;
@@ -144,18 +147,50 @@ export function showArticles() {
                 articleDiv.appendChild(articleTitle);
                 articleDiv.appendChild(articleUrl);
                 articleDiv.appendChild(articleSyn);
+                addDiv.innerHTML = artForm;
                 // console.log(articleDiv);
 
                 //append to list div
                 // articleDivList.appendChild(articleDiv);
+                articleDiv.appendChild(addDiv);
                 mainDiv.appendChild(articleDiv);
             });
             //Append all articles to main div
             // mainDiv.appendChild(articleDiv);
             return mainDiv;
+        })
+        .then(() => {
+
+
+
+            // const button = document.getElementById("postArtBtn");
+
+            // button.addEventListener("click", function () {
+            //     console.log("sup");
+            // });
+
+            mainDiv.addEventListener("click", function (e) {
+                e.preventDefault();
+                console.log(e.target);
+                if (e.target.id === "postArtBtn") {
+                    console.log("button clicked");
+                    let articleTitleInput = document.querySelector("#articleTitleInput");
+                    let articleSynInput = document.querySelector("#articleSynInput");
+                    let articleUrlInput = document.querySelector("#articleUrlInput");
+
+                    let artTitle = articleTitleInput.value;
+                    let artSyn = articleSynInput.value;
+                    let articleUrl = articleUrlInput.value;
+                }
+            });
+            let articleObj = {
+                // userId: `${user.id}`,
+                title: `${artTitle}`,
+                synopsis: `${artSyn}`,
+                url: `${articleUrl}`,
+            };
+            API.postData(articleObj).then(refresh);
         });
+
 }
 
-// add articles
-function addArticleForm() {
-}
