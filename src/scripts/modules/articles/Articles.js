@@ -84,18 +84,29 @@ import { getArticles } from "../API/articles";
 // need to be able to add, delete and edit //
 
 // make form: title, synopsis, url, save button
-const formDiv = document.createElement("div");
-const articleForm = document.createElement("form");
-const addArtBtn = document.createElement("button");
 
-addArtBtn.innerHTML = "Add";
+<form class="artForm hidden pure-form">
+    <label for="artName">Article</label>
+    <input type="text" id="articleTitleInput" name="taskName" required></input>
+    <label for="taskCompletion">Expected Completion Date</label>
+    <input type="date" id="taskCompletionInput" name="taskCompletion" required></input>
+    <button id="postTaskBtn">Save Your Task</button>
+</form>;
 
-articleForm.appendChild(addInput("title", "Title", "text"));
-articleForm.appendChild(addInput("synopsis", "Synopsis", "text"));
-articleForm.appendChild(addInput("url", "URL", "text"));
-articleForm.appendChild(addArtBtn);
+// const formDiv = document.createElement("div");
+// const articleForm = document.createElement("form");
+// const addArtBtn = document.createElement("button");
 
-formDiv.appendChild(articleForm);
+// addArtBtn.innerHTML = "Add";
+
+// articleForm.appendChild(addInput("title", "Title", "text"));
+// articleForm.appendChild(addInput("synopsis", "Synopsis", "text"));
+// articleForm.appendChild(addInput("url", "URL", "text"));
+// articleForm.appendChild(addArtBtn);
+
+// addArtBtn.addEventListener("click", (
+
+// formDiv.appendChild(articleForm);
 
 // function addInput(inputTitle, inputSynopsis, inputUrl) {
 //     let div = document.createElement("div");
