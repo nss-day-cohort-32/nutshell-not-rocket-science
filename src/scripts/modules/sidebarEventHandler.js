@@ -1,4 +1,6 @@
-import { showArticles } from "./articles/Articles";
+import {
+  showArticles
+} from "./articles/Articles";
 
 import {
   addListHTMLToDOM
@@ -6,10 +8,16 @@ import {
 import {
   showMessages
 } from "./messages/showMessages";
-import { showEditModal } from "./articles/editModal";
+import {
+  showEditModal
+} from "./articles/editModal";
 
-import { addEvents } from "./events/eventsMain";
-import { showEvents } from "./events/eventsList";
+import {
+  addEvents
+} from "./events/eventsMain";
+import {
+  showEvents
+} from "./events/eventsList";
 
 export function addSidebarEventHandler() {
   let sidebar = document.getElementById("sidebar");
@@ -27,7 +35,7 @@ function switchboard(event) {
   }
 }
 
-function handleLinkClick(linkType) {
+export function handleLinkClick(linkType) {
   let msg =
     "Replace the console.log located in the 'sidebarEventHandler.js' file with the function call to show your content";
   document.getElementById("main-content-area").innerHTML = "";

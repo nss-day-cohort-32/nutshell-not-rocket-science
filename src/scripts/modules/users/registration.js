@@ -14,6 +14,10 @@ export function showRegistration() {
     const mainDiv = document.querySelector("#root");
     mainDiv.innerHTML = "";
     window.sessionStorage.setItem("registerOrLogin", "register");
+    let headerDiv = document.createElement("div");
+    headerDiv.innerHTML = "<h1>What's Up??</h1>";
+    headerDiv.classList.add("welcome-headline");
+    mainDiv.appendChild(headerDiv);
     let loginDiv = document.createElement("div");
     loginDiv.classList.add("welcome");
 
