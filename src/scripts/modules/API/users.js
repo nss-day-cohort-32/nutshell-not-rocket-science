@@ -14,6 +14,9 @@ export function addNewUser(newUserObject) {
 
 
 export function updateOnlineStatus(user, isOnline) {
+  window.addEventListener("beforeunload", () => {
+    updateOnlineStatus(user.id, false);
+  });
   return fetch(`${users}/${user.id}`, {
       method: "PATCH",
       headers: {

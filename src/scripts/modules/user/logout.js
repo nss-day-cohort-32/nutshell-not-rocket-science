@@ -5,8 +5,12 @@ import {
   getLoggedInUser,
   removeSessionStorage
 } from "../helpers/sessionStorage";
+import {
+  showRegistration
+} from "../users/registration";
 
 export function logout() {
   removeSessionStorage();
-  return updateOnlineStatus(getLoggedInUser(), false);
+  updateOnlineStatus(getLoggedInUser(), false)
+    .then(showRegistration);
 }

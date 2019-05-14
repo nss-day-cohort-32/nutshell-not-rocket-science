@@ -1,4 +1,5 @@
 import API from "./eventsData";
+import { showEvents, refresh } from "./eventsList";
 
 export function addEvents() {
   const eventsHTML = `
@@ -53,6 +54,6 @@ export function addEvents() {
       location: `${eventLocation}`
     };
 
-    API.postData(userObj);
+    API.postData(userObj).then(refresh);
   });
 }
