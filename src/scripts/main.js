@@ -18,6 +18,10 @@ import {
   showRegistration
 } from "./modules/users/registration";
 
+import {
+  getFriendList
+} from "./modules/populateFriendList";
+
 // //  Hard coding a fetch call with the 'Carly' user for now.
 // getUserFromID(1).then(user => {
 //   setSessionStorage(user);

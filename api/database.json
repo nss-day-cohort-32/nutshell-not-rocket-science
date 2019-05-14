@@ -5,7 +5,7 @@
       "userName": "Carly",
       "email": "carly@carly.com",
       "password": "carly",
-      "isOnline": false,
+      "isOnline": true,
       "userPhoto": "www.google.com/image"
     },
     {
@@ -30,6 +30,11 @@
       "id": 1,
       "sourceId": 1,
       "userId": 2
+    },
+    {
+      "id": 2,
+      "sourceId": 1,
+      "userId": 3
     }
   ],
   "articles": [
@@ -130,6 +135,20 @@
       "userId": "4",
       "task": "complete me",
       "id": 25
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "",
+      "userId": "4",
+      "task": "change the task",
+      "id": 26
+    },
+    {
+      "isComplete": true,
+      "expectedCompletion": "2019-05-16",
+      "userId": "4",
+      "task": "doe this work",
+      "id": 27
     }
   ],
   "messages": [

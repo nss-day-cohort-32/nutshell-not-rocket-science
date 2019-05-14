@@ -1,21 +1,25 @@
+import { getLoggedInUser } from "./helpers/sessionStorage";
 
+export const getFriendList = () => {
+    let userObj = getLoggedInUser();
 
-const getFriends = () => {
-    return fetch("http://localhost:8088/friends?sourceId=1&_expand=user")
-    .then(response => response.json());
-};
-
-
-getFriends().then(data => {
+    fetch(`http://localhost:8088/friends?sourceId=${userObj.id}&_expand=user`)
+    .then(response => response.json())
+    .then(data => {
     console.log(data);
     console.log("more", data[0].id);
-
     const friendDiv = document.createElement("div");
     friendDiv.id = `friend-${data[0].id}`;
-    const html = `
-        <h3>${data[0].user.userName}</h3>
-        <button id="deleteFriend-${data[0].id}>Delete Friend</button>
-    `;
-    friendDiv.innerHTML = html;
+
+    data.forEach(friend => {
+        console.log(friend);
+        const html = `
+        <h3 id="friend-${friend.id}">${friend.user.userName}</h3>
+        <button id="deleteFriend-${friend.id}>Delete Friend</button>
+        `;
+    friendDiv.innerHTML += html;
+    });
+
     document.querySelector(".sidebar-friendList-header").appendChild(friendDiv);
-});
+    });
+};
