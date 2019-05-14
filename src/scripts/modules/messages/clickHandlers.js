@@ -1,8 +1,4 @@
 import {
-  showNewMessages,
-  showInitialMessages
-} from "./showMessages";
-import {
   addMessage,
   deleteMessage
 } from "../API/messages";
@@ -54,7 +50,7 @@ function addMessageHandler(event) {
   let newMessage = buildMessageObject(event, user.id);
 
   addMessage(newMessage)
-    .then(showInitialMessages);
+    .then(refreshMessages);
 };
 
 
