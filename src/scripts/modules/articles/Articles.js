@@ -145,5 +145,4 @@ export function showArticles() {
 
 // add articles
 function addArticleForm() {
-    return ``;
 }
