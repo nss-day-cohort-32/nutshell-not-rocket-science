@@ -1,5 +1,6 @@
 import API from "./eventsData";
 import { showEvents, refresh } from "./eventsList";
+import { getLoggedInUser } from "../helpers/sessionStorage";
 
 export function addEvents() {
   const eventsHTML = `
@@ -44,10 +45,11 @@ export function addEvents() {
     let eventDate = eventDateInput.value;
     let eventTime = eventTimeInput.value;
     let eventLocation = eventLocationInput.value;
-    let userId = 7;
+    let user = getLoggedInUser();
+    console.log(user);
 
     let userObj = {
-      userId: `${userId}`,
+      userId: `${user.id}`,
       event: `${eventName}`,
       date: `${eventDate}`,
       time: `${eventTime}`,
