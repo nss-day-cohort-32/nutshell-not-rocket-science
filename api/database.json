@@ -45,14 +45,14 @@
     {
       "id": 1,
       "userId": 1,
-      "event": "Fun Concert",
+      "event": "Fun Concert 55",
       "date": "2014-01-01",
-      "time": "12:25:PM",
+      "time": "",
       "location": "Nashville"
     },
     {
       "userId": "7",
-      "event": "project-3",
+      "event": "project-10",
       "date": "2019-05-14",
       "time": "12:59",
       "location": "nashville",
