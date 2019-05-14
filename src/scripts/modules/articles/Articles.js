@@ -100,8 +100,6 @@ import { getArticles } from "../API/articles";
 //     let label = document.createElement("label");
 //     let input = document.createElement("input");
 //     input.type = inputType;
-//     label.htmlFor = inputName;
-//     label.innerHTML = inputTitle;
 //     input.id = inputName;
 //     div.appendChild(label);
 //     div.appendChild(input);
@@ -143,4 +141,9 @@ export function showArticles() {
             // mainDiv.appendChild(articleDiv);
             return mainDiv;
         });
+}
+
+// add articles
+function addArticleForm() {
+    return ``;
 }
