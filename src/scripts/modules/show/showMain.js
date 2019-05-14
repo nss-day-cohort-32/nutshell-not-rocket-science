@@ -14,7 +14,8 @@ import {
   buildDOMElement
 } from "../helpers/buildDOMElement";
 import {
-  addSidebarEventHandler
+  addSidebarEventHandler,
+  handleLinkClick
 } from "../sidebarEventHandler";
 
 export function showMain() {
@@ -31,4 +32,5 @@ export function showMain() {
 
   // TODO: Activate article page
   addSidebarEventHandler();
+  handleLinkClick("articles");
 }
