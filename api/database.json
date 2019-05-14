@@ -5,7 +5,7 @@
       "userName": "Carly",
       "email": "carly@carly.com",
       "password": "carly",
-      "isOnline": false,
+      "isOnline": true,
       "userPhoto": "www.google.com/image"
     },
     {
@@ -15,6 +15,14 @@
       "password": "deep",
       "isOnline": false,
       "userPhoto": "www.google.com/image"
+    },
+    {
+      "userName": "Rob",
+      "email": "rob@rob.com",
+      "password": "rob",
+      "isOnline": true,
+      "userPhoto": "",
+      "id": 3
     }
   ],
   "friends": [
@@ -22,6 +30,11 @@
       "id": 1,
       "sourceId": 1,
       "userId": 2
+    },
+    {
+      "id": 2,
+      "sourceId": 1,
+      "userId": 3
     }
   ],
   "articles": [
@@ -119,7 +132,7 @@
       "id": 22
     },
     {
-      "isComplete": false,
+      "isComplete": true,
       "expectedCompletion": "2019-05-01",
       "userId": "4",
       "task": "edit the edit tasks task",
@@ -138,6 +151,20 @@
       "userId": "4",
       "task": "complete me",
       "id": 25
+    },
+    {
+      "isComplete": false,
+      "expectedCompletion": "",
+      "userId": "4",
+      "task": "change the task",
+      "id": 26
+    },
+    {
+      "isComplete": true,
+      "expectedCompletion": "2019-05-16",
+      "userId": "4",
+      "task": "doe this work",
+      "id": 27
     }
   ],
   "messages": [

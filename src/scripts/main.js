@@ -18,6 +18,7 @@ import {
   showRegistration
 } from "./modules/users/registration";
 
+
 // //  Hard coding a fetch call with the 'Carly' user for now.
 // getUserFromID(1).then(user => {
 //   setSessionStorage(user);

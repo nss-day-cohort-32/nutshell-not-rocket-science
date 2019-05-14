@@ -1,6 +1,7 @@
 import {
   buildDOMElement
 } from "../helpers/buildDOMElement";
+import { getFriendList } from "../populateFriendList";
 
 
 export function showSidebar(user, parentDiv) {
@@ -25,10 +26,7 @@ export function showSidebar(user, parentDiv) {
   buildDOMElement("span", sidebar, "My Friends", null, ["sidebar-friendList-header", "pure-menu-heading"]);
   let friendUL = buildDOMElement("ul", sidebar, null, "friendList-ul");
 
-  //  TODO: Get friend list
-  for (let i = 0; i < 10; i++) {
-    buildDOMElement("li", friendUL, `Friend ${i}`);
-  }
+  getFriendList();
 
   fragment.appendChild(sidebar);
   parentDiv.appendChild(fragment);
