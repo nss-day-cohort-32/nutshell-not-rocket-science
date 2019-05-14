@@ -13,7 +13,7 @@
       "userName": "Deep",
       "email": "deep@carly.com",
       "password": "deep",
-      "isOnline": false,
+      "isOnline": true,
       "userPhoto": "www.google.com/image"
     },
     {
@@ -91,6 +91,14 @@
       "time": "22:00",
       "location": "400 Broadway, Nashville, TN 37203",
       "id": 4
+    },
+    {
+      "userId": "2",
+      "event": "deep",
+      "date": "",
+      "time": "",
+      "location": "",
+      "id": 6
     }
   ],
   "tasks": [
