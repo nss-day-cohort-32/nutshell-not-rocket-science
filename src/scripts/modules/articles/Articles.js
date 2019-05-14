@@ -84,16 +84,18 @@ import { getArticles } from "../API/articles";
 // need to be able to add, delete and edit //
 
 // make form: title, synopsis, url, save button
-// const formDiv = document.createElement("div");
-// const articleForm = document.createElement("form");
+const formDiv = document.createElement("div");
+const articleForm = document.createElement("form");
+const addArtBtn = document.createElement("button");
 
-// saveBtn.innerHTML = "Save";
+addArtBtn.innerHTML = "Add";
 
-// articleForm.appendChild(addInput("title", "Title", "text"));
-// articleForm.appendChild(addInput("synopsis", "Synopsis", "text"));
-// articleForm.appendChild(addInput("url", "URL", "text"));
+articleForm.appendChild(addInput("title", "Title", "text"));
+articleForm.appendChild(addInput("synopsis", "Synopsis", "text"));
+articleForm.appendChild(addInput("url", "URL", "text"));
+articleForm.appendChild(addArtBtn);
 
-// formDiv.appendChild(articleForm);
+formDiv.appendChild(articleForm);
 
 // function addInput(inputTitle, inputSynopsis, inputUrl) {
 //     let div = document.createElement("div");
