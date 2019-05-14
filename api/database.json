@@ -15,6 +15,14 @@
       "password": "deep",
       "isOnline": false,
       "userPhoto": "www.google.com/image"
+    },
+    {
+      "userName": "Rob",
+      "email": "rob@rob.com",
+      "password": "rob",
+      "isOnline": true,
+      "userPhoto": "",
+      "id": 3
     }
   ],
   "friends": [
