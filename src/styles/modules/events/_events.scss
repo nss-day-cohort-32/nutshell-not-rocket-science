@@ -24,3 +24,13 @@ button {
   padding: 0.3rem;
   background-color: orange;
 }
+
+#eventItem-latest {
+  background-color: yellow;
+}
+
+#date-latest,
+#time-latest,
+#location-latest {
+  font-weight: bold;
+}
