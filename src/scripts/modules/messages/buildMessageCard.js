@@ -1,12 +1,21 @@
+import {
+  getLoggedInUser
+} from "../helpers/sessionStorage";
+
+
+
+
 export function buildMessageCard(message) {
   let article = document.createElement("article"),
-    authorTools = "";
+    authorTools = "",
+    loggedInUser = getLoggedInUser();
   article.setAttribute("data-timeStamp", message.postedTime);
   article.classList.add("message");
   article.id = `message--${message.id}`;
-
-  // if message.userId = logged in user...
-  authorTools = `
+  console.log(message.userId);
+  console.log(loggedInUser.id);
+  if (message.userId === loggedInUser.id) {
+    authorTools = `
     <div class="message--icon-container">
       <ion-icon name="create" id="message--edit--${message.id}"></ion-icon>
     </div>
@@ -14,6 +23,8 @@ export function buildMessageCard(message) {
       <ion-icon name="trash" id="message--delete--${message.id}"></ion-icon>
     </div>
   `;
+    article.classList.add("message-fromMe");
+  }
   let messageTime = new Date(message.postedTime * 1000).toLocaleString(
     "en-US", {
       hour: "numeric",
