@@ -8,7 +8,7 @@ const API = {
     );
   },
   postData: function(obj) {
-    fetch(`${baseURL}/events`, {
+    return fetch(`${baseURL}/events`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -17,7 +17,7 @@ const API = {
     }).then(response => response.json());
   },
   patchData: function(obj, id) {
-    fetch(`${baseURL}/events/${id}`, {
+    return fetch(`${baseURL}/events/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
