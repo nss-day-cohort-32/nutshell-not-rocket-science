@@ -18,10 +18,11 @@ import {
 } from "../sidebarEventHandler";
 
 export function showMain() {
-  console.log("show the main site");
+
   // show main site if user is logged in.
   let user = getLoggedInUser();
   let root = document.querySelector("#root");
+  root.innerHTML = "";
   showSidebar(user, root);
   let rootInner = buildDOMElement("div", root, null, null, ["root-inner"]);
   rootInner.appendChild(showHeader(user));

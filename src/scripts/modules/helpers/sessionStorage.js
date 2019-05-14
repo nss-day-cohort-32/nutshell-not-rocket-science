@@ -8,6 +8,7 @@ export const setSessionStorage = (user) => {
 
 // global call function for referencing current user
 export const getLoggedInUser = () => {
+    console.log(sessionStorage);
     if (sessionStorage.hasOwnProperty("loggedInUserId")) {
         let user = {
             id: sessionStorage.getItem("loggedInUserId"),

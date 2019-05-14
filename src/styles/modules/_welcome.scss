@@ -1,0 +1,15 @@
+.welcome {
+  width: 60%;
+
+  &-legend {
+    display: flex;
+    justify-content: space-between;
+
+    & button {}
+  }
+
+  &-header-active {
+    background-color: $mainBlue;
+    opacity: 0.8;
+  }
+}
