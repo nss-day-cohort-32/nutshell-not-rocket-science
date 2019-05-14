@@ -1,4 +1,4 @@
-h2 {
+#taskh2 {
     text-align: center;
 }
 
@@ -12,6 +12,7 @@ h2 {
     padding: 1rem;
     width: 12rem;
     position: relative;
+    background-color: lightgray;
 }
 
 #taskList {
@@ -23,4 +24,16 @@ button {
     font-size: 1rem;
     padding: 0.3rem;
     background-color: orange;
+}
+
+.taskForm {
+    margin: 2rem;
+}
+
+#addTaskBtn {
+    margin-left: 1rem;
+}
+
+.taskHeader {
+    text-transform: capitalize;
 }
