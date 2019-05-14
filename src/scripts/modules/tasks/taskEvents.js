@@ -2,19 +2,21 @@ import listAPI from "./taskDbCalls";
 import {
   displayTaskList
 } from "./taskList";
-import { getLoggedInUser } from "../helpers/sessionStorage";
+import {
+  getLoggedInUser
+} from "../helpers/sessionStorage";
 
 export function addTaskEventListener() {
   const main = document.querySelector("#main-content-area");
 
   main.addEventListener("click", function (e) {
+    e.preventDefault();
     console.log(e.target);
     if (e.target.id === "addTaskBtn") {
       document.querySelector(".taskForm").classList.remove("hidden");
     } else if (e.target.id === "postTaskBtn") {
       const taskNameInput = document.querySelector("#taskNameInput");
       const taskCompletionInput = document.querySelector("#taskCompletionInput");
-
       let taskName = taskNameInput.value;
       let taskComplete = taskCompletionInput.value;
       let user = getLoggedInUser();
