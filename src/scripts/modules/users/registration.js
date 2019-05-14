@@ -1,77 +1,93 @@
-import api from "../API.js";
+import {
+    registerNewUser
+} from "../user/register";
+import {
+    doLogin
+} from "../user/doLogin";
 
 
-const mainDiv = document.querySelector("#main-content-area");
+//import api from "../API.js";
 
-//login function
-
-//this needs to be a fetch to the DB to check if the user exists. This should be an API call. If the user exists set a login token with sessionStorage.setItem(), if the user doesn't exist, make a second api call to "register" the user and write their info to the database
+export function showRegistration() {
 
 
+    const mainDiv = document.querySelector("#root");
+    mainDiv.innerHTML = "";
+    window.sessionStorage.setItem("registerOrLogin", "register");
+    let loginDiv = document.createElement("div");
+    loginDiv.classList.add("welcome");
 
-//Create all HTML elements
+    loginDiv.innerHTML = `<form class="pure-form pure-form-aligned">
+    <legend><div class="welcome-legend">
+        <button id="welcomeButton-register" class="welcome-header-active pure-button pure-button-disabled">Register new account</button>
+        <button class="pure-button" id="welcomeButton-login">Login to existing account</button>
+        </div>
+    </legend>
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="name">Username</label>
+            <input type="text" placeholder="Username" id="inputUsername">
+        </div>
 
+        <div class="pure-control-group">
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="inputPassword">
+        </div>
 
-let loginDiv = document.createElement("div");
-let inputForm = document.createElement("form");
-let userNameInput = document.createElement("input");
-let emailInput = document.createElement("input");
-let passwordInput = document.createElement("input");
-let signInBtn = document.createElement("button");
-let registerBtn = document.createElement("button");
+        <div class="pure-control-group">
+            <label for="email">Email Address</label>
+            <input type="email" placeholder="Email Address" id="inputEmail">
+        </div>
 
-
-
-
-//Create form labels
-
-
-// let usernameLabel = document.createElement("label");
-// usernameLabel.htmlFor = userNameInput;
-// usernameLabel.innerHTML = "Username";
-
-// let passwordLabel = document.createElement("label");
-// passwordLabel.htmlFor = passwordInput;
-// passwordLabel.innerHTML = "Password";
-
-// let emailLabel = document.createElement("label");
-// emailLabel.htmlFor = passwordInput;
-// emailLabel.innerHTML = "Email";
-
-// emailInput.setAttribute("type", "email");
-// passwordInput.setAttribute("type", "password");
-signInBtn.innerHTML = "Sign In";
-
-inputForm.appendChild(addInput("username", "Username", "text"));
-inputForm.appendChild(addInput("email", "Email", "text"));
-inputForm.appendChild(addInput("password", "Password", "text"));
-
-// let formArray = [userNameInput, emailInput, passwordInput, signInBtn, usernameLabel, passwordLabel, emailLabel];
-// formArray.forEach(element => {
-//     inputForm.appendChild(element);
-// });
-
-loginDiv.appendChild(inputForm);
-mainDiv.appendChild(loginDiv);
+            <button type="submit" class="pure-button pure-button-primary" id="welcomeButton-submit">Submit</button>
+        </div>
+    </fieldset>
+</form>`;
 
 
-// just make a function so the text labels go where they're supposed to; called above
-function addInput(inputName, inputTitle, inputType) {
-    let div = document.createElement("div");
-    let label = document.createElement("label");
-    let input = document.createElement("input");
-    input.type = inputType;
-    label.htmlFor = inputName;
-    label.innerHTML = inputTitle;
-    input.id = inputName;
-    div.appendChild(label);
-    div.appendChild(input);
-    div.appendChild(signInBtn);
-    return div;
+    loginDiv.addEventListener("click", event => {
+        event.preventDefault();
+        console.log(event.target.id);
+        if (event.target.id === "welcomeButton-submit") submitButtonHandler();
+        if (event.target.id === "welcomeButton-register" || event.target.id === "welcomeButton-login") toggleButton();
+
+    });
+    // let formArray = [userNameInput, emailInput, passwordInput, signInBtn, usernameLabel, passwordLabel, emailLabel];
+    // formArray.forEach(element => {
+    //     inputForm.appendChild(element);
+    // });
+
+    mainDiv.appendChild(loginDiv);
 
 }
 
+function submitButtonHandler() {
+    console.log("Hello from submitButtonHandler");
+    let toggle = window.sessionStorage.getItem("registerOrLogin");
+    if (toggle === "register") registerNewUser();
+    if (toggle === "login") doLogin();
+}
 
-// inputForm.addEventListener("submit", logUserIn);
 
 
+function toggleButton() {
+    let registerButton = document.getElementById("welcomeButton-register"),
+        loginButton = document.getElementById("welcomeButton-login");
+
+
+    if (registerButton.classList.contains("welcome-header-active")) {
+        // Switch everything to login
+        console.log("setting to login");
+        registerButton.classList.remove("welcome-header-active", "pure-button-disabled");
+        loginButton.classList.add("welcome-header-active", "pure-button-disabled");
+        window.sessionStorage.setItem("registerOrLogin", "login");
+
+    } else {
+        console.log("setting to register");
+        registerButton.classList.add("welcome-header-active", "pure-button-disabled");
+        loginButton.classList.remove("welcome-header-active", "pure-button-disabled");
+        window.sessionStorage.setItem("registerOrLogin", "register");
+
+    }
+
+}
