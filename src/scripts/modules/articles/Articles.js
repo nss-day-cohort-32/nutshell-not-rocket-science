@@ -1,4 +1,5 @@
 import { getArticles } from "../API/articles";
+import { showEditModal } from "../articles/editModal";
 
 
 export function addArticle() {
@@ -48,19 +49,24 @@ export function showArticles() {
 
                 //Create elements
                 let articleDiv = document.createElement("div");
-                let articleTitle = document.createElement("h2");
+                let articleTitle = document.createElement("h3");
                 let articleUrl = document.createElement("h4");
                 let articleSyn = document.createElement("p");
+                let editBtn = document.createElement("button");
 
                 //Set elements value to values in current object in loop
                 articleTitle.innerHTML = article.title;
                 articleUrl.innerHTML = article.url;
                 articleSyn.innerHTML = article.synopsis;
+                editBtn.innerHTML = "Edit";
+                editBtn.setAttribute("Id", article.id);
+                editBtn.addEventListener("click", (event) => showEditModal(event.target.id));
 
                 //append to div
                 articleDiv.appendChild(articleTitle);
                 articleDiv.appendChild(articleUrl);
                 articleDiv.appendChild(articleSyn);
+                articleDiv.appendChild(editBtn);
                 // console.log(articleDiv);
 
                 //append to list div
@@ -83,7 +89,7 @@ export function showArticles() {
 // const formDiv = document.createElement("div");
 // const articleForm = document.createElement("form");
 
-// saveBtn.innerHTML = "Save";
+// // saveBtn.innerHTML = "Save";
 
 // articleForm.appendChild(addInput("title", "Title", "text"));
 // articleForm.appendChild(addInput("synopsis", "Synopsis", "text"));
@@ -143,4 +149,4 @@ export function showArticles() {
 
 // }
 
-// // need to be able to add, delete and edit //
+// need to be able to add, delete and edit //
