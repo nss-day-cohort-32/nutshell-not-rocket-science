@@ -57,6 +57,22 @@
       "time": "12:59",
       "location": "nashville",
       "id": 2
+    },
+    {
+      "userId": "7",
+      "event": "House Party",
+      "date": "2019-05-17",
+      "time": "08:00",
+      "location": "7277 Charlotte Pike Nashville ,TN 37209",
+      "id": 3
+    },
+    {
+      "userId": "7",
+      "event": "Project Completion Party  ",
+      "date": "2019-05-18",
+      "time": "22:00",
+      "location": "400 Broadway, Nashville, TN 37203",
+      "id": 4
     }
   ],
   "tasks": [

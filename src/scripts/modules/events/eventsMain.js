@@ -4,7 +4,7 @@ import { showEvents, refresh } from "./eventsList";
 export function addEvents() {
   const eventsHTML = `
 
-  <h2>Events</h2>
+  <h2 id="hEvent">Events</h2>
   
   <div id="eventList"></div>
 
