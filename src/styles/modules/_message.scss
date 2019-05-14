@@ -41,7 +41,14 @@
   background-color: orange;
   display: flex;
   flex-direction: column;
+
+  &-fromMe {
+    align-self: flex-end;
+    background-color: green;
+    color: #eee;
+  }
 }
+
 
 
 .message--icon-container {

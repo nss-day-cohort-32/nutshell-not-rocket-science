@@ -4,9 +4,7 @@ import {
 import {
   logout
 } from "../user/logout";
-import {
-  showWelcome
-} from "./showWelcome";
+
 
 export function showHeader(user) {
   let fragment = document.createDocumentFragment();
@@ -17,8 +15,7 @@ export function showHeader(user) {
   let logoutLink = buildDOMElement("a", linkDiv, "Log out", "logout-link");
 
   logoutLink.addEventListener("click", (event => {
-    logout()
-      .then(showWelcome);
+    logout();
   }));
 
   return fragment;
